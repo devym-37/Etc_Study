@@ -41,10 +41,15 @@ function handleSumit(event){
 }
 
 
+
 function loadToDos(){
     const loadedtoDos = localStorage.getItem(TODOS_LS);
-    if(loadedtoDos === null){
-
+    if(loadedtoDos !== null){
+        const parseToDos = JSON.parse(loadedtoDos);
+        // JSON.parse는 string을 object형태로 변환
+        parseToDos.forEach(function(toDo){
+            paintToDo(toDo.text);
+        });
     } 
 }
 
