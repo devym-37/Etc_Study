@@ -9,7 +9,8 @@ body {
     transition: color 0.5s ease-in-out;
   }
   .js-clock,
-  li {
+  li,
+  .js-weather {
     color: white;
   }
   
