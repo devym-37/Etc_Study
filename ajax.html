@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax 1 - Text File</title>
+  </head>
+  <body>
+    <button id="button">Get Text File</button>
+    <br />
+    <div id="text"></div>
+    <script>
+      // Create event listener
+      document.getElementById("button").addEventListener("click", loadText);
+      function loadText() {
+        // create XHR Object
+        var xhr = new XMLHttpRequest();
+        // OPEN - type, url/file, async
+        xhr.open("GET", "./sample.text", true);
+
+        // OPITIONAL - used for loaders
+        xhr.onprogress = function() {
+          console.log("READYSTATE", xhr.readyState); // 3
+        };
+
+        xhr.onload = function() {
+          if (this.status == 200) {
+            document.getElementById("text").innerHTML = this.responseText;
+          } else if (this.status === 404) {
+            document.getElementById("text").innerHTML = "Not Found";
+          }
+        };
+
+        xhr.onerror = function() {
+          console.log("Request Erroor...");
+        };
+
+        // xhr.onreadystatechange = function() {
+        //   if (this.readyState === 4 && this.status === 200) {
+        //   }
+        // };
+
+        // Sends request
+        xhr.send();
+      }
+    </script>
+  </body>
+</html>
