@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch API</title>
+  </head>
+  <body>
+    <input
+      type="button"
+      value="ajax_study2"
+      onclick="/*
+    fetch('ajax_study2').then(function(response){response.text().then(function(text){document.querySelector('article').innerHTML
+    = text})})
+    fetch('ajax_study2').then(function(response){
+        if(response.status === '404'){
+            alert('not Found')
+        }
+    })*/ 
+    fetchPage('ajax_study2')
+    "
+    />
+    <input
+      type="button"
+      value="ajax_study3"
+      onclick="fetchPage('ajax_study3')"
+    />
+    <article></article>
+    <script>
+      function fetchPage(name) {
+        fetch(name).then(function(response) {
+          response.text().then(function(text) {
+            document.querySelector("article").innerHTML = text;
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
