@@ -1,4 +1,5 @@
 # 출력하기
+import random
 print("hello world")
 
 print([1, 2, 3, 4])
@@ -197,3 +198,81 @@ list_membership = ['lee', 'young', 'min']
 'park' in list_membership  # false
 'park' not in list_membership  # true
 
+
+# If 문 구조
+# if 조건:
+#    실행할 명령
+# elif:
+#    실행할 명령
+# else:
+#    실행할 명령
+
+# Loop
+# while문
+# while 조건:
+#     실행할 명령
+
+# continue : continue 아래 코드는 실행 x
+# break
+
+
+# Dictionary = Object
+sub_dict = {}   # 빈 Dictionary 생성
+sub_dict[0] = 'a'  # sub_dict = {0: 'a'}
+sub_dict['b'] = 2
+#  sub_dict = {0: 'a', 'b':2}
+
+print(sub_dict[0])
+
+# delete
+del sub_dict[0]  # key값이 0인 value 삭제
+
+# Dictionary 메서드
+sub_dict.values()   # value값들만
+sub_dict.keys()     # key 값들만
+for key in sub_dict.keys():
+    print(key)
+
+sub_dict.items()
+for key, val in sub_dict.items():
+    print(key, val)
+
+# Function
+# 내장함수 / 모듈의 함수 / 사용자 정의 함수
+
+# 구조
+# def 함수이름(인자1, ...):
+#     실행할 명령
+#     retrun 결과
+
+# why function ? 재사용성 가능, 코드관리 용이, 조립 가능
+
+
+def add(num1, num2):
+    return num1 + num2
+
+
+add(1, 2)  # return 3
+
+
+def com(num1, num2):
+    return num1 + num2, num1 * num2
+
+
+add, mul = com(1, 2)  # unpacking
+add  # 3
+mul  # 2
+
+
+# Module : 함수들을 모아둔 파일
+student = [1, 2, 3, 4, 5, 6]
+random.choice()
+
+print(random.choice(student))  # 랜덤으로 값 출력
+random.sample()
+random.randint()
+# random.randint(8, 10)  : 8부터 10사이의 숫자 랜덤으로 반환
+
+# Object : 파이썬은 객체지향
+
+# 코딩스타일 PEP8
