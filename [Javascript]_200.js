@@ -9,3 +9,15 @@ console.log("c", c); // 30
 
 let { a: newA = 10, f: newF = 5 } = obj;
 // a:newA=10은 객체의 a 속성값을 새로운 변수 newA로 다시 할당하되, undefined로 값이 없는 경우에는 기본값 10을 할당한다는 의미.
+
+// 스코프 체인 이해하기
+// 실행 컨텍스트와 렉시컬 환경에 대해 알아야 한다.
+
+// arrow function
+const sum = (...args) => {
+  let total = 0;
+  for (let i = 0; i < args.length; i++) {
+    total += args[i];
+  }
+  return total;
+};
