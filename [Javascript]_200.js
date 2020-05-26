@@ -21,3 +21,111 @@ const sum = (...args) => {
   }
   return total;
 };
+
+// 자바스크립트는 프로토타입 기반으로 객체지향 프로그래밍을 지원한다. 자바의 클래스 기반과의 큰 차이점으로 프로토타입으로 객체에 공통 사항을 적용할 수 있다.
+
+const studentProto = {
+  gainExp: function () {
+    this.exp++;
+  },
+};
+
+const harin = {
+  name: "하린",
+  age: 10,
+  exp: 0,
+  __proto__: studentProto,
+};
+
+// 생성자 함수 : 객체를 생성하는 역할을 하는 함수. new 키워드를 사용하지 않으면 일반적인 함수와 동일하게 동작하며 새로운 객체를 반환하지 않는다.
+// 객체에 타입이 적용되면 해당 객체는 그 타입의 '인스턴스'라고 한다.
+/*
+객체 생성 과정
+1. 빈 객체를 만든다.
+2. 만든 빈 객체를 this에 할당
+3. 생성자 함수 바디의 코드를 실행한다. (this에 속성 및 메소드 추가)
+4. 만든 빈 객체의 __proto__에 생성자 함수의 prototype 속성을 대입
+5. this를 생성자의 반환값으로 변환
+*/
+
+// 프로토타입 기반 상속
+
+function Storage() {
+  this.dataStore = {};
+}
+Storage.prototype.put = function (key, data) {
+  this.dataStore[key] = data;
+};
+Storage.prototype.getData = function (key) {
+  return this.dataStore[key];
+};
+
+function RemovableStorage() {
+  Storage.call(this);
+}
+
+// ES6 class
+// ex) 붕어빵은 객체 붕어빵 틀이 클래스
+// 클래스를 통해 객체가 가져야 할 상태와 행위들을 속성과 메소드로 정의할 수 있다.
+// 특정 클래스를 통해 만들어진 객체를 해당 클래스의 인스턴스.
+
+class Cart {
+  constructor() {
+    this.store = {};
+  }
+
+  addProduct(product) {
+    this.store[product.id] = product;
+  }
+
+  getProduct(id) {
+    return this.store[id];
+  }
+}
+// 클래스 상속 이해
+class Chart {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+  }
+
+  drawLine() {
+    console.log("draw line");
+  }
+}
+
+class BarChart extends Chart {
+  constructor(width, height) {
+    super(width, height);
+  }
+
+  draw() {
+    this.drawLine();
+    console.log(`draw ${this.width} X ${this.height} barChart`);
+  }
+}
+
+// class 정적 메소드와 속성
+// 일반적인 메소드는 해당 클래스의 인스턴스를 통해 호출한다. 하지만 정적 메소드는 클래스를 통해 직접 호출하는 메소드를 말한다. 'static' 키워드를 사용
+class Product {
+  static build(name, price) {
+    const id = Math.floor(Math.random() * 1000);
+    return new Product(id, name, price);
+  }
+
+  static getTaxPrice(product) {
+    return product.price * 0.1 + product.price;
+  }
+
+  constructor(id, name, price) {
+    this.id = id;
+    this.name = name;
+    this.price = price;
+  }
+}
+
+class DeposableProduct extends Product {
+  depose() {
+    this.deposed = true;
+  }
+}
