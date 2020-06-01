@@ -129,3 +129,21 @@ class DeposableProduct extends Product {
     this.deposed = true;
   }
 }
+
+// module
+// import / export 키워드 사용
+
+export function hello(name) {
+  console.log(`hello ${name}`);
+}
+
+import { hello } from "./hello.js";
+
+hello("es6 module");
+
+/*번들링(Bundling) : 번들링은 의존 관계가 형성된 모듈들을 하나의 파일로 묶어준다. 
+그리고 애플리케이션이 구동할 때 묶여진 이 파일을 로드한다. 번들링은 개발 시점에 이루어지게 되고
+브라우저에서 이루어지지 않고 대체로 node.js 환경에서 이루어지게 된다. 대표적으로 Webpack이 있다. */
+
+// ES6 모듈 시스템에서는 default 키워드를 사용하여 모듈에서 기본으로 내보내는 값을 정의할 수 있다.
+// default 키워드 사용에 있어, 하나의 모듈에서 한 번만 사용할 수 있다. 즉, 한 파일에서는 하나의 값만 default로 정의 할 수 있다.
