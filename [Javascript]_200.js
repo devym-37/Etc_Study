@@ -163,3 +163,29 @@ const str = new String("자바스크립트");
 9. Map : ES6부터 표준으로 추가된 Map 객체는 키 : 값 데이터 구조를 지닌 데이터 집합체(Collection)이다. Iterator를 통해 Map의 데이터를 순회한다는 특징
 10. Set : ES6부터 표준으로 추가된 객체형으로, 오직 값으로 이루어진 데이터 집합체이다. 값의 중복성을 허용하지 않는 차이점.
 */
+
+// 문자열자르기
+// 'String'.substring(시작 인덱스, 종료 인덱스)
+// 'String'.substr(시작 인덱스, 길이)
+const sentence = "Wakanda Forever!!!";
+console.log(sentence.substr(8)); // 8번째 인덱스의 문자부터 뒤이어 7개의 문자들을 반환
+
+// 자바스크립트의 모든 객체는 Object를 상속받기 때문에, 다른 모든 객체는 prototype을 통해 Object의 내장 메소드 toString()에 접근하고, 재정의(Override)한다.
+
+// 두개의 문자열 하나로 합치기(concat)
+const str1 = "very";
+const str2 = "Good";
+
+console.log(str1.concat(str2)); // very Good
+// but +연산자가 concat 메서드보다 성능상 더 빠르기 때문에, +연산자의 사용을 권장하고 있다.
+
+// Reduce
+/*
+Array 객체의 메소드 reduce는 배열 요소를 순환하면서, 정의된 callback ㅎ마수에 의해 단일 값으로 누적시킬 수 있다.
+배열.reduce((누적된 값, 현재 요소값, 현재 인덱스, 원본 배열) => {
+  return  누적값으로 반환되는 값
+}, 초기값);
+*/
+
+// 객체에서 키만 추출
+// Object.keys(obj) -> 배열의 형태로 key값들만 반환
