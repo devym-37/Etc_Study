@@ -189,3 +189,10 @@ Array 객체의 메소드 reduce는 배열 요소를 순환하면서, 정의된 
 
 // 객체에서 키만 추출
 // Object.keys(obj) -> 배열의 형태로 key값들만 반환
+
+// 객체 변경되지 않도록 하기(freeze)
+// Object 객체의 메소드 freeze는 단어 그대로 객체를 동결(freeze)한다. freeze 메소드로 객체를 동결한 이후에는 다른 속성을 추가하거나 제거할 수 없다.
+
+// UTC 기준 날짜 출력하기(Date.UTC) : 세계 표준 현재 시간을 나타내는 방법
+const date = new Date();
+const dataUTC = Date.UTC(date.getUTCFullYear());
