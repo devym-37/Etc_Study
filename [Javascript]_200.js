@@ -196,3 +196,45 @@ Array 객체의 메소드 reduce는 배열 요소를 순환하면서, 정의된 
 // UTC 기준 날짜 출력하기(Date.UTC) : 세계 표준 현재 시간을 나타내는 방법
 const date = new Date();
 const dataUTC = Date.UTC(date.getUTCFullYear());
+
+// 문자열 순환하기(for-of)
+/*
+for(변수 of 반복 가능한 객체){
+  실행할 문장
+}
+*/
+
+const str = "hello";
+
+for (const item of str) {
+  console.log(item);
+}
+
+const iter = str[Symbol.iterator]();
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+/*
+h
+e
+l
+l
+o
+{value: "h", done: false}
+{value: "e", done: false}
+...
+{value: "o", done: false}
+{value: undefined, done: true}
+*/
+
+// Promise
+/*
+두 가지 메소드를 가진다
+1. then(onFulFilled, onReject) : 약속이 완료됐을 때 호출될 함수들을 정의한다. 이때 첫번째 인자로 전달되는
+함수는 약속이 성공적으로 이행됐을 때 호출되고 두 번째 인자로 전달된 함수는 거부됐을 때 호출된다. 두 전달
+인자 함수들은 매개변수를 가지는데 각각의 결과가 매개변수를 통해 전달된다.
+2. catch(onReject) : 약속이 거부됐을 때 호출될 함수(onReject)를 등록한다.
+*/
