@@ -61,7 +61,7 @@ const get = numbersGen();
 
 // console.log(numbersGen.next());
 
-const getNumbers = function*(numbers) {
+const getNumbers = function* (numbers) {
   for (var i = 0; i < numbers.length; i++) {
     yield numbers[i];
   }
@@ -79,3 +79,43 @@ const interval = setInterval(() => {
     console.log(number);
   }
 }, 1000);
+
+/*
+filter, includes, from을 사용해서 문자열 'e'가 포함된 노드로 구성된 배열을 만들어서 반환 
+li>
+apple
+orange
+banana
+strawberry
+*/
+
+function print() {
+  let list = document.querySelectorAll("li");
+  let listArray = Array.from(list);
+  let resultArray = listArray.filter((value) => value.innerText.includes("e"));
+
+  return resultArray;
+}
+
+print();
+
+// Object 선언 방법
+
+function getObj() {
+  const name = "crong";
+
+  const getName = () => {
+    return name;
+  };
+
+  const setName = (newName) => {
+    name = newName;
+  };
+
+  return {
+    getName,
+    setName,
+  };
+}
+
+let obj = getObj();
