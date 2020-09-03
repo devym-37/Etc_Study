@@ -11,4 +11,8 @@
 
 ---
 
-### CRA
+### 02 \_\_ Javascript A to Z
+
+```
+$ ~02_index.js
+```
